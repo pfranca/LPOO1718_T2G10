@@ -46,5 +46,5 @@ public class Game {
 		return hero.getPosition();
 		
 	}
-	
+	//coasdgysadkl
 }

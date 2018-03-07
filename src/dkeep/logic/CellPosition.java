@@ -52,6 +52,6 @@ public class CellPosition {
 			return false;
 		return true;
 	}
-	
+	//cwenas
 	
 }
