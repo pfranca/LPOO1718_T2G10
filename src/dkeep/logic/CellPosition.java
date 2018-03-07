@@ -1,7 +1,7 @@
 package dkeep.logic;
 
 public class CellPosition {
-//yoyo
+//yoyog
 	private int x;
 	private int y;
 	
