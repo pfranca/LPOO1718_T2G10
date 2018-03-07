@@ -23,8 +23,17 @@ public class TestDungeonGameLogic {
 		Game game= new Game(gameMap);
 		assertEquals(new CellPosition(1,1), game.getHeroPosition());
 		game.moveHero("s");
-		assertEquals(new CellPosition(2,1), game.getHeroPosition());
+		assertEquals(new CellPosition(1,2), game.getHeroPosition());
 		
+	}
+	
+	@Test
+	public void testHeroIsCapturedByGuard() {
+		GameMap gameMap = new GameMap(map);
+		Game game= new Game(gameMap);
+		assertFalse(game.isGameOver());
+		game.moveHero("d");
+		assertTrue(game.isGameOver());
 	}
 
 }

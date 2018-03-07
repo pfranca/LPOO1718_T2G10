@@ -47,4 +47,14 @@ public class Game {
 		
 	}
 	//coasdgysadkl
+
+	public boolean isGameOver() {
+		if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()+1] == 'G' ||
+				map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'G' ||
+				map.getMap()[hero.getPosition().getY()+1][hero.getPosition().getX()] == 'G' ||
+				map.getMap()[hero.getPosition().getY()-1][hero.getPosition().getX()] == 'G'){
+			return true;
+		}
+		return false;
+	}
 }
