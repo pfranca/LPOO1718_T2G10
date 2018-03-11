@@ -35,8 +35,9 @@ public class GameMap {
 	public char[][] getMap(){
 		return map;
 	}
+
 	
-	public static void printLevel(char[][] map){
+	public void printMap(){
         for(int i = 0; i<map.length; i++){
            for(int j = 0; j<map.length; j++){
                System.out.print(map[i][j]);
@@ -44,5 +45,16 @@ public class GameMap {
            System.out.println();
        }
     }
+	
+	public void updateHero(int x, int y, String input) {
+		map[y][x]=' ';
+		switch(input){
+			case "w": map[y-1][x]='H'; break;
+			case "a": map[y][x-1]='H'; break;
+			case "s": map[y+1][x]='H'; break;
+			case "d": map[y][x+1]='H'; break;
+			default:break;
+		}	
+	}
 
 }

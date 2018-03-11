@@ -14,27 +14,27 @@ public class Game {
 	public void moveHero(String input) {
 		switch(input) {
 		case "w":
-			if(map.getMap()[hero.getPosition().getY()-1][hero.getPosition().getX()] != 'X') {
+			if(map.getMap()[hero.getPosition().getY()-1][hero.getPosition().getX()] == ' ') {
+				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX(), hero.getPosition().getY()-1); 
-				//update map
 			}
 				break;
 		case "a":
-			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] != 'X') {
+			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == ' ') {
+				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX()-1, hero.getPosition().getY()); 
-				//update map
 			}
 			break;
 		case "s":
-			if(map.getMap()[hero.getPosition().getY()+1][hero.getPosition().getX()] != 'X') {
+			if(map.getMap()[hero.getPosition().getY()+1][hero.getPosition().getX()] == ' ') {
+				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX(), hero.getPosition().getY()+1); 
-				//update map
 			}
 			break;
 		case "d":
-			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()+1] != 'X') {
+			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()+1] == ' ') {
+				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX()+1, hero.getPosition().getY()); 
-				//update map
 			}	
 			break;
 		default:break;
@@ -46,9 +46,14 @@ public class Game {
 		return hero.getPosition();
 		
 	}
-	//coasdgysadkl
+	
+	public GameMap getMap(){
+		return map;
+	}
+
 
 	public boolean isGameOver() {
+		//check for guard
 		if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()+1] == 'G' ||
 				map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'G' ||
 				map.getMap()[hero.getPosition().getY()+1][hero.getPosition().getX()] == 'G' ||
