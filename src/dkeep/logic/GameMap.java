@@ -56,5 +56,9 @@ public class GameMap {
 			default:break;
 		}	
 	}
+	
+	public void updateGuard() {
+		
+	}
 
 }

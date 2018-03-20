@@ -28,6 +28,8 @@ public class UserInterface {
         	game.getMap().printMap();
             String input = in.nextLine();
             game.moveHero(input);
+            game.moveGuard(game.getGuard());
+            game.getMap().updateGuard();
             //printLevel();
         }
     }
