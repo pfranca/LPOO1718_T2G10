@@ -4,11 +4,13 @@ public class Game {
 	
 	private GameMap map;
 	private Hero hero;
+	private Guard guard;
 	
 	
 	public Game(GameMap map) {
 		this.map=map;
 		this.hero = new Hero(map);
+		this.guard = new Guard(map);
 	}
 
 	public void moveHero(String input) {
@@ -42,6 +44,11 @@ public class Game {
 		
 	}
 	
+	public void moveGuard() {
+		guard.moveGuard();
+		map.updateGuard(guard.getPosition().getX(), guard.getPosition().getY());
+	}
+	
 	public CellPosition getHeroPosition() {
 		return hero.getPosition();
 		
@@ -54,10 +61,10 @@ public class Game {
 
 	public boolean isGameOver() {
 		//check for guard
-		if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()+1] == 'G' ||
-				map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'G' ||
-				map.getMap()[hero.getPosition().getY()+1][hero.getPosition().getX()] == 'G' ||
-				map.getMap()[hero.getPosition().getY()-1][hero.getPosition().getX()] == 'G'){
+		if(hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()-1||
+			hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()+1 ||
+			hero.getPosition().getX() == guard.getPosition().getX()-1 && hero.getPosition().getY() == guard.getPosition().getY() ||
+			hero.getPosition().getX() == guard.getPosition().getX()+1 && hero.getPosition().getY() == guard.getPosition().getY()){
 			return true;
 		}
 		return false;
