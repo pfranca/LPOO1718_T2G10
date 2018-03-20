@@ -57,8 +57,19 @@ public class GameMap {
 		}	
 	}
 	
-	public void updateGuard() {
+	
+	public void updateGuard(int x, int y) {
+		for(int i=0;i<map.length;i++) {
+			for(int j=0;j<map.length;j++) {
+				if(map[i][j]=='g') {
+					map[i][j]=' ';
+				}
+				if(map[i][j]=='G')
+					map[i][j]=' ';
+			}
+		}
 		
+		map[y][x]='G';
 	}
 
 }

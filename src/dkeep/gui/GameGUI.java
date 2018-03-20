@@ -10,6 +10,8 @@ import javax.swing.JTextArea;
 
 import dkeep.logic.Game;
 import dkeep.logic.GameMap;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
 
 public class GameGUI {
 
@@ -85,5 +87,16 @@ public class GameGUI {
 		JButton btnRight = new JButton("Right");
 		btnRight.setBounds(455, 185, 89, 23);
 		frame.getContentPane().add(btnRight);
+		
+		JLabel lblGuardsPersonality = new JLabel("Guard Personality");
+		lblGuardsPersonality.setBounds(22, 49, 106, 14);
+		frame.getContentPane().add(lblGuardsPersonality);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(122, 44, 106, 20);
+		frame.getContentPane().add(comboBox);
+		comboBox.addItem("Rookie");
+		comboBox.addItem("Drunken");
+		comboBox.addItem("Suspicious");
 	}
 }

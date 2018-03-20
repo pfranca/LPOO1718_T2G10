@@ -1,5 +1,7 @@
 package dkeep.logic;
 
+import java.util.Random;
+
 public class Game {
 	
 	private GameMap map;
@@ -15,8 +17,24 @@ public class Game {
 		this.map=map;
 		this.hero = new Hero(map);
 		this.lever = new Key(map);
-		this.guard = new Guard(8,1,"Rookie");
-		this.map.getMap()[guard.getPosition().getY()][guard.getPosition().getX()] = 'G';
+		this.guard = new Guard(map);
+		
+		Random r = new Random();
+		int i = r.nextInt(3);
+
+		switch(i) {
+		case 0:
+			this.guard.setPersonality("Rookie");
+			break;
+		case 1:
+			this.guard.setPersonality("Drunken");
+			break;
+		case 2:
+			this.guard.setPersonality("Suspicious");
+			break;
+		default:
+			break;
+		}
 	}
 
 	public void moveHero(String input) {
@@ -58,15 +76,22 @@ public class Game {
 		String personality = guard.getPersonality();
 		switch(personality) {
 		case "Rookie":
-			guard.moveRookie(map);
+			guard.moveRookie();
 			break;
 		case "Drunken":
-			guard.moveDrunken(map);
+			guard.moveDrunken();
 			break;
 		case "Suspicious":
-			guard.moveSuspicious(map);
+			guard.moveSuspicious();
 			break;
 		default:break;
+		}
+		
+		if(!guard.getAsleep()) {
+			map.updateGuard(guard.getPosition().getX(), guard.getPosition().getY());
+		}
+		else {
+			map.getMap()[guard.getPosition().getY()][guard.getPosition().getX()] = 'g';
 		}
 	}
 	
@@ -82,12 +107,14 @@ public class Game {
 
 	public boolean isGameOver() {
 		//check for guard
-		if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()+1] == 'G' ||
-				map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'G' ||
-				map.getMap()[hero.getPosition().getY()+1][hero.getPosition().getX()] == 'G' ||
-				map.getMap()[hero.getPosition().getY()-1][hero.getPosition().getX()] == 'G'){
-			System.out.println("GAME OVER!");
-			return true;
+		if(!guard.getAsleep()) {
+			if(hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()-1||
+				hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()+1 ||
+				hero.getPosition().getX() == guard.getPosition().getX()-1 && hero.getPosition().getY() == guard.getPosition().getY() ||
+				hero.getPosition().getX() == guard.getPosition().getX()+1 && hero.getPosition().getY() == guard.getPosition().getY()){
+				System.out.println("GAME OVER!");
+				return true;
+			}
 		}
 		
 		if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
