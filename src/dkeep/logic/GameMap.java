@@ -47,7 +47,13 @@ public class GameMap {
     }
 	
 	public void updateHero(int x, int y, String input) {
-		map[y][x]=' ';
+		if(x==7 && y==8) {
+			map[y][x]='k';
+		}
+		else {
+			map[y][x]=' ';
+		}
+		//map[y][x]=' ';
 		switch(input){
 			case "w": map[y-1][x]='H'; break;
 			case "a": map[y][x-1]='H'; break;

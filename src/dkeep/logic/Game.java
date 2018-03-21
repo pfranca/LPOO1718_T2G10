@@ -47,10 +47,17 @@ public class Game {
 				break;
 		case "a":
 			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == ' ') {
+				
 				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX()-1, hero.getPosition().getY()); 
 			}
-			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == map.getMap()[lever.getPosition().getY()][lever.getPosition().getX()]) {
+			if(hero.getPosition().getY() == lever.getPosition().getY() &&
+				hero.getPosition().getX()-1 == lever.getPosition().getX()) {
+				
+				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
+				hero.setPosition(hero.getPosition().getX()-1, hero.getPosition().getY()); 
+				//map.getMap()[lever.getPosition().getY()][lever.getPosition().getX()]='k';
+				
 				map.getMap()[5][0] = 'S';
 				map.getMap()[6][0] = 'S';
 			}

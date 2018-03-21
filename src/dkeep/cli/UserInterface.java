@@ -27,8 +27,8 @@ public class UserInterface {
         while(!game.isGameOver()){
         	game.getMap().printMap();
             String input = in.nextLine();
-            game.moveGuard(game.getGuard());
             game.moveHero(input);
+            game.moveGuard(game.getGuard());
             //printLevel();
         };
     }
