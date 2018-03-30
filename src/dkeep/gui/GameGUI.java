@@ -13,6 +13,8 @@ import dkeep.logic.Game;
 import dkeep.logic.GameMap;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GameGUI {
 	
@@ -75,28 +77,8 @@ public class GameGUI {
 		
 		JTextArea gameText = new JTextArea();
 		gameText.setBounds(22, 46, 305, 224);
-		gameText.setFont(new Font("Courier New", Font.PLAIN, 15));
+		gameText.setFont(new Font("Courier New", Font.PLAIN,15));
 		frame.getContentPane().add(gameText);
-		
-		JButton btnUp = new JButton("Up");
-		btnUp.setBounds(398, 115, 89, 23);
-		btnUp.setEnabled(false);
-		frame.getContentPane().add(btnUp);
-		
-		JButton btnDown = new JButton("Down");
-		btnDown.setBounds(398, 185, 89, 23);
-		btnDown.setEnabled(false);
-		frame.getContentPane().add(btnDown);
-		
-		JButton btnLeft = new JButton("Left");
-		btnLeft.setBounds(339, 150, 89, 23);
-		btnLeft.setEnabled(false);
-		frame.getContentPane().add(btnLeft);
-		
-		JButton btnRight = new JButton("Right");
-		btnRight.setBounds(455, 150, 89, 23);
-		btnRight.setEnabled(false);
-		frame.getContentPane().add(btnRight);
 		
 		JLabel lblGuardsPersonality = new JLabel("Guard Personality");
 		lblGuardsPersonality.setBounds(36, 27, 128, 14);
@@ -113,6 +95,90 @@ public class GameGUI {
 		gameMessage.setBounds(22, 284, 234, 15);
 		gameMessage.setText("You can start a new game!");
 		frame.getContentPane().add(gameMessage);
+		
+		JButton btnUp = new JButton("Up");
+		btnUp.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				game.moveHero("w");
+	            game.moveGuard(game.getGuard());
+	            gameMessage.setText("you moved up");
+	            gameText.setText(null);
+	            for(int i = 0; i<game.getMap().getMap().length; i++){
+			          for(int j = 0; j<game.getMap().getMap().length; j++){
+			             gameText.append((game.getMap().getMap()[i][j])+"");
+			          }
+			          gameText.append("\n");
+			    }
+	            
+			}
+		});
+		btnUp.setBounds(398, 115, 89, 23);
+		btnUp.setEnabled(false);
+		frame.getContentPane().add(btnUp);
+		
+		JButton btnDown = new JButton("Down");
+		btnDown.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				game.moveHero("s");
+	            game.moveGuard(game.getGuard());
+	            gameMessage.setText("you moved down");
+	            gameText.setText(null);
+	            for(int i = 0; i<game.getMap().getMap().length; i++){
+			          for(int j = 0; j<game.getMap().getMap().length; j++){
+			             gameText.append((game.getMap().getMap()[i][j])+"");
+			          }
+			          gameText.append("\n");
+			    }
+	            
+			}
+		});
+		btnDown.setBounds(398, 185, 89, 23);
+		btnDown.setEnabled(false);
+		frame.getContentPane().add(btnDown);
+		
+		JButton btnLeft = new JButton("Left");
+		btnLeft.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				game.moveHero("a");
+	            game.moveGuard(game.getGuard());
+	            gameMessage.setText("you moved left");
+	            gameText.setText(null);
+	            for(int i = 0; i<game.getMap().getMap().length; i++){
+			          for(int j = 0; j<game.getMap().getMap().length; j++){
+			             gameText.append((game.getMap().getMap()[i][j])+"");
+			          }
+			          gameText.append("\n");
+			    }
+	            
+			}
+		});
+		btnLeft.setBounds(339, 150, 89, 23);
+		btnLeft.setEnabled(false);
+		frame.getContentPane().add(btnLeft);
+		
+		JButton btnRight = new JButton("Right");
+		btnRight.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				game.moveHero("d");
+	            game.moveGuard(game.getGuard());
+	            gameMessage.setText("you moved right");
+	            gameText.setText(null);
+	            for(int i = 0; i<game.getMap().getMap().length; i++){
+			          for(int j = 0; j<game.getMap().getMap().length; j++){
+			             gameText.append((game.getMap().getMap()[i][j])+"");
+			          }
+			          gameText.append("\n");
+			    }
+	            
+			}
+		});
+		btnRight.setBounds(455, 150, 89, 23);
+		btnRight.setEnabled(false);
+		frame.getContentPane().add(btnRight);
 		
 		JButton btnNewGame = new JButton("Start New Game");
 		btnNewGame.addActionListener(new ActionListener() {
