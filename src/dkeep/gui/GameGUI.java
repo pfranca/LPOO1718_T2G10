@@ -1,6 +1,7 @@
 package dkeep.gui;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -14,8 +15,21 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 
 public class GameGUI {
+	
+	static char level1[][] = {
+            {'X','X','X','X','X','X','X','X','X','X'},
+            {'X','H',' ',' ','I',' ','X',' ','G','X'},
+            {'X','X','X',' ','X','X','X',' ',' ','X'},
+            {'X',' ','I',' ','I',' ','X',' ',' ','X'},
+            {'X','X','X',' ','X','X','X',' ',' ','X'},
+            {'I',' ',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'I',' ',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X','X','X',' ','X','X','X','X',' ','X'},
+            {'X',' ','I',' ','I',' ','X','k',' ','X'},
+            {'X','X','X','X','X','X','X','X','X','X'}};
 
 	private JFrame frame;
+	private static Game game;
 
 	/**
 	 * Launch the application.
@@ -49,16 +63,7 @@ public class GameGUI {
 		frame.setBounds(100, 100, 560, 356);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JButton btnNewGame = new JButton("New Game");
-		btnNewGame.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
 				
-			}
-		});
-		btnNewGame.setBounds(455, 76, 89, 23);
-		frame.getContentPane().add(btnNewGame);
-		
 		JButton btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -68,35 +73,67 @@ public class GameGUI {
 		btnExit.setBounds(455, 276, 89, 23);
 		frame.getContentPane().add(btnExit);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(22, 75, 305, 224);
-		frame.getContentPane().add(textArea);
+		JTextArea gameText = new JTextArea();
+		gameText.setBounds(22, 46, 305, 224);
+		gameText.setFont(new Font("Courier New", Font.PLAIN, 15));
+		frame.getContentPane().add(gameText);
 		
 		JButton btnUp = new JButton("Up");
-		btnUp.setBounds(398, 149, 89, 23);
+		btnUp.setBounds(398, 115, 89, 23);
+		btnUp.setEnabled(false);
 		frame.getContentPane().add(btnUp);
 		
 		JButton btnDown = new JButton("Down");
-		btnDown.setBounds(398, 222, 89, 23);
+		btnDown.setBounds(398, 185, 89, 23);
+		btnDown.setEnabled(false);
 		frame.getContentPane().add(btnDown);
 		
 		JButton btnLeft = new JButton("Left");
-		btnLeft.setBounds(337, 185, 89, 23);
+		btnLeft.setBounds(339, 150, 89, 23);
+		btnLeft.setEnabled(false);
 		frame.getContentPane().add(btnLeft);
 		
 		JButton btnRight = new JButton("Right");
-		btnRight.setBounds(455, 185, 89, 23);
+		btnRight.setBounds(455, 150, 89, 23);
+		btnRight.setEnabled(false);
 		frame.getContentPane().add(btnRight);
 		
 		JLabel lblGuardsPersonality = new JLabel("Guard Personality");
-		lblGuardsPersonality.setBounds(22, 49, 106, 14);
+		lblGuardsPersonality.setBounds(36, 27, 128, 14);
 		frame.getContentPane().add(lblGuardsPersonality);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(122, 44, 106, 20);
+		comboBox.setBounds(182, 24, 106, 20);
 		frame.getContentPane().add(comboBox);
 		comboBox.addItem("Rookie");
 		comboBox.addItem("Drunken");
 		comboBox.addItem("Suspicious");
+		
+		JTextArea gameMessage = new JTextArea();
+		gameMessage.setBounds(22, 284, 234, 15);
+		gameMessage.setText("You can start a new game!");
+		frame.getContentPane().add(gameMessage);
+		
+		JButton btnNewGame = new JButton("Start New Game");
+		btnNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GameGUI.game= new Game(new GameMap(level1));
+				btnUp.setEnabled(true);
+				btnDown.setEnabled(true);
+				btnLeft.setEnabled(true);
+				btnRight.setEnabled(true);
+				gameMessage.setText("You can play now");
+				for(int i = 0; i<game.getMap().getMap().length; i++){
+			          for(int j = 0; j<game.getMap().getMap().length; j++){
+			             gameText.append((game.getMap().getMap()[i][j])+"");
+			          }
+			          gameText.append("\n");
+			    }
+			}
+		});
+		btnNewGame.setBounds(363, 42, 165, 23);
+		frame.getContentPane().add(btnNewGame);
+		
+		
 	}
 }
