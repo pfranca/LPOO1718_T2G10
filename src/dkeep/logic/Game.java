@@ -110,6 +110,10 @@ public class Game {
 	public GameMap getMap(){
 		return map;
 	}
+	
+	public void setMap(GameMap map){
+		this.map=map;
+	}
 
 
 	public boolean isGameOver() {

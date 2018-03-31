@@ -12,13 +12,14 @@ import javax.swing.JTextArea;
 import dkeep.logic.Game;
 import dkeep.logic.GameMap;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JComboBox;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class GameGUI {
 	
-	static char level1[][] = {
+	/*static char level1[][] = {
             {'X','X','X','X','X','X','X','X','X','X'},
             {'X','H',' ',' ','I',' ','X',' ','G','X'},
             {'X','X','X',' ','X','X','X',' ',' ','X'},
@@ -29,9 +30,12 @@ public class GameGUI {
             {'X','X','X',' ','X','X','X','X',' ','X'},
             {'X',' ','I',' ','I',' ','X','k',' ','X'},
             {'X','X','X','X','X','X','X','X','X','X'}};
-
-	private JFrame frame;
-	private static Game game;
+	*/
+	static JFrame gameFrame;
+	static JLayeredPane layerPane;
+	static MenuGUI menu;
+	
+	/*private static Game game;
 	JButton btnExit;
 	JTextArea gameText;
 	JLabel lblGuardsPersonality;
@@ -41,7 +45,7 @@ public class GameGUI {
 	JButton btnDown;
 	JButton btnLeft;
 	JButton btnRight;
-	JButton btnNewGame;
+	JButton btnNewGame;*/
 
 	/**
 	 * Launch the application.
@@ -51,14 +55,15 @@ public class GameGUI {
 			public void run() {
 				try {
 					GameGUI window = new GameGUI();
-					window.frame.setVisible(true);
+					window.gameFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
+	
+	
 	/**
 	 * Create the application.
 	 */
@@ -70,12 +75,27 @@ public class GameGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 560, 356);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-				
+		
+		gameFrame = new JFrame();
+		gameFrame.setResizable(false);
+		gameFrame.setBounds(100, 100, 1000, 1000);
+		gameFrame.setTitle("DnD");
+		gameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		gameFrame.getContentPane().setLayout(null);
+		
+		
+		layerPane = new JLayeredPane();
+		layerPane.setBounds(0,0,1000,1000);
+		gameFrame.getContentPane().add(layerPane);
+		layerPane.setLayout(null);
+		
+		menu = new MenuGUI();
+		menu.setBounds(0, 0, 1000, 1000);
+		layerPane.add(menu);
+		menu.setLayout(null);
+		
+		
+		/*		
 		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,7 +107,7 @@ public class GameGUI {
 		
 		gameText = new JTextArea();
 		gameText.setBounds(22, 46, 305, 224);
-		gameText.setFont(new Font(Font.MONOSPACED/*"Courier New"*/, Font.PLAIN,15));
+		gameText.setFont(new Font(Font.MONOSPACED, Font.PLAIN,15));
 		frame.getContentPane().add(gameText);
 		
 		lblGuardsPersonality = new JLabel("Guard Personality");
@@ -105,6 +125,8 @@ public class GameGUI {
 		gameMessage.setBounds(22, 284, 234, 15);
 		gameMessage.setText("You can start a new game!");
 		frame.getContentPane().add(gameMessage);
+		*/
+		/*
 		
 		btnUp = new JButton("Up");
 		btnUp.addMouseListener(new MouseAdapter() {
@@ -229,9 +251,10 @@ public class GameGUI {
 		btnNewGame = new JButton("Start New Game");
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameText.setText(null);
-				
+					
+					gameText.setText(null);
 					GameGUI.game= new Game(new GameMap(level1));
+					GameGUI.game.setMap(new GameMap(level1));
 					btnUp.setEnabled(true);
 					btnDown.setEnabled(true);
 					btnLeft.setEnabled(true);
@@ -248,6 +271,7 @@ public class GameGUI {
 		});
 		btnNewGame.setBounds(363, 42, 165, 23);
 		frame.getContentPane().add(btnNewGame);
+		*/
 		
 		
 	}
