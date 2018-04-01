@@ -115,7 +115,6 @@ public class Game {
 		this.map=map;
 	}
 
-
 	public boolean isGameOver() {
 		//check for guard
 		if(!guard.getAsleep()) {
