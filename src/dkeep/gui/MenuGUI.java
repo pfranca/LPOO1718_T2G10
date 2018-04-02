@@ -5,11 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
 import javax.swing.border.MatteBorder;
+
+import java.awt.event.*;
+
+import dkeep.gui.Level1GUI;
 
 public class MenuGUI extends JPanel{
 	
 	private JFrame gameFrame = GameGUI.gameFrame;
+	private JLayeredPane layerPane = GameGUI.layerPane;
+	private Level1GUI level1 = GameGUI.level1;
 	
 	public MenuGUI() {
 		super();
@@ -29,6 +36,7 @@ public class MenuGUI extends JPanel{
 		add(menuImgPanel);
 	}
 	
+
 private void setBtnExit() {
 		
 		JButton btnExit = new JButton("");
@@ -51,7 +59,9 @@ public void setBtnNewGame(){
 		btnNewGame.setBackground(Color.BLACK);
 		btnNewGame.setIcon(new ImageIcon(MenuGUI.class.getResource("res/btnNewGame3.jpg")));
 		btnNewGame.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				GameGUI.menu.setVisible(false);
+				level1.setVisible(true);
 					
 			}
 		});
