@@ -16,12 +16,27 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 
+import dkeep.logic.Game;
+import dkeep.logic.GameMap;
+
 public class GameGUI {
+	static char level1[][] = {
+            {'X','X','X','X','X','X','X','X','X','X'},
+            {'X','H',' ',' ','I',' ','X',' ','G','X'},
+            {'X','X','X',' ','X','X','X',' ',' ','X'},
+            {'X',' ','I',' ','I',' ','X',' ',' ','X'},
+            {'X','X','X',' ','X','X','X',' ',' ','X'},
+            {'I',' ',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'I',' ',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X','X','X',' ','X','X','X','X',' ','X'},
+            {'X',' ','I',' ','I',' ','X','k',' ','X'},
+            {'X','X','X','X','X','X','X','X','X','X'}};
 	
 	static JFrame gameFrame;
 	static JLayeredPane layerPane;
 	static MenuGUI menu;
-	static Level1GUI level1;
+	static Level1GUI level1Panel;
+	static Game game;
 
 	/**
 	 * Launch the application.
@@ -54,28 +69,41 @@ public class GameGUI {
 		
 		gameFrame = new JFrame();
 		gameFrame.setResizable(false);
-		gameFrame.setBounds(100, 100, 1000, 1000);
+		gameFrame.setBounds(0, 0, 500, 500);
 		gameFrame.setTitle("DnD");
 		gameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		gameFrame.getContentPane().setLayout(null);
 		
 		
 		layerPane = new JLayeredPane();
-		layerPane.setBounds(0,0,1000,1000);
+		layerPane.setBounds(0,0,500,500);
 		gameFrame.getContentPane().add(layerPane);
 		layerPane.setLayout(null);
 		
-		level1 = new Level1GUI();
-		level1.setBounds(0, 0, 1000, 1000);
-		layerPane.add(level1);
-		level1.setLayout(null);
-		level1.setVisible(false);
+		level1Panel = new Level1GUI(500, 500, 10);
+		level1Panel.setBounds(0, 0, 500, 500);
+		level1Panel.setVisible(false);
+		layerPane.add(level1Panel);
 		
 		menu = new MenuGUI();
-		menu.setBounds(0, 0, 1000, 1000);
+		menu.setBounds(0, 0, 500, 500);
 		layerPane.add(menu);
 		menu.setLayout(null);
 		
 		
+	}
+	
+	public static void setGame(String guard) {
+		GameGUI.game = new Game(new GameMap(level1));
+		GameGUI.game.getGuard().setPersonality(guard);
+
+	}
+	
+	public static Game getGame() {
+		return game;
+	}
+	
+	public static GameMap getMap() {
+		return game.getMap();
 	}
 }

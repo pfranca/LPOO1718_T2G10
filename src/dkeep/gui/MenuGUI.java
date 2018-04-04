@@ -16,7 +16,7 @@ public class MenuGUI extends JPanel{
 	
 	private JFrame gameFrame = GameGUI.gameFrame;
 	private JLayeredPane layerPane = GameGUI.layerPane;
-	private Level1GUI level1 = GameGUI.level1;
+	private JComboBox comboBox;
 	
 	public MenuGUI() {
 		super();
@@ -30,7 +30,7 @@ public class MenuGUI extends JPanel{
 	
 	private void setImage() {
 		JPanel menuImgPanel = new JPanel();
-		menuImgPanel.setBounds(0, 0, 1000, 1000);
+		menuImgPanel.setBounds(0, 0, 500, 500);
 		ImageIcon menuImg = new ImageIcon(this.getClass().getResource("res/menu2.png"));
 		menuImgPanel.add(new JLabel(menuImg));
 		add(menuImgPanel);
@@ -48,7 +48,7 @@ private void setBtnExit() {
 				System.exit(0);
 			}
 		});
-		btnExit.setBounds(650, 860, 275, 65);
+		btnExit.setBounds(150, 400, 150, 30);
 		add(btnExit);	
 	}
 
@@ -59,13 +59,31 @@ public void setBtnNewGame(){
 		btnNewGame.setBackground(Color.BLACK);
 		btnNewGame.setIcon(new ImageIcon(MenuGUI.class.getResource("res/btnNewGame3.jpg")));
 		btnNewGame.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				GameGUI.menu.setVisible(false);
-				level1.setVisible(true);
-					
+			public void actionPerformed(ActionEvent arg0) {
+				
+
+				comboBox = new JComboBox();
+				comboBox.setBounds(182, 24, 106, 20);
+				add(comboBox);
+				comboBox.addItem("Random Guard");
+				comboBox.addItem("Rookie");
+				comboBox.addItem("Drunken");
+				comboBox.addItem("Suspicious");		
+				comboBox.addActionListener (new ActionListener () {
+				    public void actionPerformed(ActionEvent e) {
+				    	String guard= comboBox.getSelectedItem().toString();
+				    	GameGUI.setGame(guard);
+						GameGUI.menu.setVisible(false);
+						GameGUI.level1Panel.update();
+						GameGUI.level1Panel.setVisible(true);
+						GameGUI.level1Panel.requestFocus();
+				    }
+				});
+							
+				
 			}
 		});
-		btnNewGame.setBounds(600, 750, 320, 86);
+		btnNewGame.setBounds(300, 450, 150, 40);
 		add(btnNewGame);
 		
 	}
