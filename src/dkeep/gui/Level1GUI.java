@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 
 import dkeep.logic.Game;
 import dkeep.logic.GameMap;
+import dkeep.logic.Guard;
 
 public class Level1GUI extends Map implements KeyListener {
 	
@@ -37,15 +38,17 @@ public class Level1GUI extends Map implements KeyListener {
 		
 		
 
-		if (GameGUI.getGame().isGameOver()){
-			
-			System.exit(0);
-			
+		if (GameGUI.getGame().isGameOver()){	
+			System.exit(0);	
 		}
-		GameGUI.getGame().moveHero(input);
+		//GameGUI.getGame().moveHero(input);
 		
 		
-		GameGUI.getGame().moveGuard(GameGUI.getGame().getGuard());
+		//GameGUI.getGame().moveGuard(GameGUI.getGame().getGuard());
+		GameGUI.getGame().updateGame(input, GameGUI.getGame().getGuard());
+		if(GameGUI.getMap().getMap()[GameGUI.getGame().getHeroPosition().getY()][GameGUI.getGame().getHeroPosition().getX()-1] == 'S') 	
+			GameGUI.setLevel2();
+
 		
 		update();
 		

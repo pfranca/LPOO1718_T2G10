@@ -30,8 +30,9 @@ public class MenuGUI extends JPanel{
 	
 	private void setImage() {
 		JPanel menuImgPanel = new JPanel();
-		menuImgPanel.setBounds(0, 0, 500, 500);
-		ImageIcon menuImg = new ImageIcon(this.getClass().getResource("res/menu2.png"));
+		menuImgPanel.setBounds(0, 0, 600, 600);
+		menuImgPanel.setBackground(Color.BLACK);
+		ImageIcon menuImg = new ImageIcon(this.getClass().getResource("res/menu3.png"));
 		menuImgPanel.add(new JLabel(menuImg));
 		add(menuImgPanel);
 	}
@@ -40,7 +41,7 @@ public class MenuGUI extends JPanel{
 private void setBtnExit() {
 		
 		JButton btnExit = new JButton("");
-		btnExit.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		//btnExit.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		btnExit.setBackground(Color.BLACK);
 		btnExit.setIcon(new ImageIcon(MenuGUI.class.getResource("res/btnExit3.jpg")));
 		btnExit.addActionListener(new ActionListener() {
@@ -55,7 +56,7 @@ private void setBtnExit() {
 public void setBtnNewGame(){
 	
 		JButton btnNewGame  = new JButton("");
-		btnNewGame.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		//btnNewGame.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		btnNewGame.setBackground(Color.BLACK);
 		btnNewGame.setIcon(new ImageIcon(MenuGUI.class.getResource("res/btnNewGame3.jpg")));
 		btnNewGame.addActionListener(new ActionListener() {
@@ -65,7 +66,6 @@ public void setBtnNewGame(){
 				comboBox = new JComboBox();
 				comboBox.setBounds(182, 24, 106, 20);
 				add(comboBox);
-				comboBox.addItem("Random Guard");
 				comboBox.addItem("Rookie");
 				comboBox.addItem("Drunken");
 				comboBox.addItem("Suspicious");		

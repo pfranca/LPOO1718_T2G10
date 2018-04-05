@@ -1,5 +1,6 @@
 package dkeep.gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -31,6 +32,16 @@ public class GameGUI {
             {'X','X','X',' ','X','X','X','X',' ','X'},
             {'X',' ','I',' ','I',' ','X','k',' ','X'},
             {'X','X','X','X','X','X','X','X','X','X'}};
+	static char level2[][] = {
+            {'X','X','X','X','X','X','X','X','X'},
+            {'I',' ',' ',' ',' ',' ',' ','O','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X','H',' ',' ',' ',' ',' ',' ','X'},
+            {'X','X','X','X','X','X','X','X','X'}};
 	
 	static JFrame gameFrame;
 	static JLayeredPane layerPane;
@@ -68,25 +79,26 @@ public class GameGUI {
 	private void initialize() {
 		
 		gameFrame = new JFrame();
-		gameFrame.setResizable(false);
-		gameFrame.setBounds(0, 0, 500, 500);
+		gameFrame.setResizable(true);
+		gameFrame.setBounds(400, 160, 600, 635);
+		//gameFrame.pack();
 		gameFrame.setTitle("DnD");
 		gameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		gameFrame.getContentPane().setLayout(null);
 		
 		
 		layerPane = new JLayeredPane();
-		layerPane.setBounds(0,0,500,500);
+		layerPane.setBounds(0,0,600,600);
 		gameFrame.getContentPane().add(layerPane);
 		layerPane.setLayout(null);
 		
-		level1Panel = new Level1GUI(500, 500, 10);
-		level1Panel.setBounds(0, 0, 500, 500);
+		level1Panel = new Level1GUI(600, 600, 10);
+		level1Panel.setBounds(0, 0, 600, 600);
 		level1Panel.setVisible(false);
 		layerPane.add(level1Panel);
 		
 		menu = new MenuGUI();
-		menu.setBounds(0, 0, 500, 500);
+		menu.setBounds(0, -3, 600, 600);
 		layerPane.add(menu);
 		menu.setLayout(null);
 		
@@ -99,11 +111,17 @@ public class GameGUI {
 
 	}
 	
+	
 	public static Game getGame() {
 		return game;
 	}
 	
+	
 	public static GameMap getMap() {
 		return game.getMap();
+	}
+	
+	public static void setLevel2() {
+		GameGUI.game.setMap(new GameMap(level2));
 	}
 }

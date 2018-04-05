@@ -3,7 +3,7 @@ package dkeep.logic;
 import java.util.Random;
 
 public class Game {
-	
+
 	private GameMap map;
 	private Hero hero;
 	private Key lever;
@@ -35,6 +35,13 @@ public class Game {
 		default:
 			break;
 		}
+	}
+	
+	public void updateGame(String input, Guard guard) {		
+
+			moveGuard(guard);
+			moveHero(input);
+		
 	}
 
 	public void moveHero(String input) {
@@ -127,10 +134,10 @@ public class Game {
 			}
 		}
 		
-		if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
+		/*if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			System.out.println("YOU WIN!"); 
 			return true;
-		}		
+		}	*/	
 		return false;
 	}
 }

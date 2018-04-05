@@ -26,7 +26,7 @@ public class Map extends JPanel{
 	private ImageIcon resizeImage(ImageIcon im) {
 
 		Image img = im.getImage();
-		Image newimg = img.getScaledInstance(this.getWidth() / 10, this.getHeight() / 10, Image.SCALE_FAST);
+		Image newimg = img.getScaledInstance(this.getWidth() / 10, this.getHeight() / 10, Image.SCALE_DEFAULT);
 
 		return new ImageIcon(newimg);
 	}
@@ -39,8 +39,8 @@ public class Map extends JPanel{
 		floor = new ImageIcon(this.getClass().getResource("res/floor.png"));
 		hero = new ImageIcon(this.getClass().getResource("res/hero.png"));
 		key = new ImageIcon(this.getClass().getResource("res/key.png"));
-		openDoor = new ImageIcon(this.getClass().getResource("res/openDoor.png"));
-		closedDoor = new ImageIcon(this.getClass().getResource("res/closedDoor.png"));
+		openDoor = new ImageIcon(this.getClass().getResource("res/openDoor2.png"));
+		closedDoor = new ImageIcon(this.getClass().getResource("res/closedDoor2.png"));
 		//ogre = new ImageIcon(this.getClass().getResource("res/ogre.png"));
 
 		wall = resizeImage(wall);
