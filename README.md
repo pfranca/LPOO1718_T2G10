@@ -1,4 +1,4 @@
-# Guided Project for OOP Lab class @FEUP
+# Guided Project for OOP Lab class @FEUP [![BCH compliance](https://bettercodehub.com/edge/badge/pfranca/LPOO1718_T2G10?branch=master)](https://bettercodehub.com/)
 ## LPOO1718_T2G10
 
 ### Team Members <br />
