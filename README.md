@@ -15,6 +15,7 @@ http://pedrofranca.me/LPOO1718_T2G10 <br />
 
 ## BetterCodeHub Status Badge <br />
 [![BCH compliance](https://bettercodehub.com/edge/badge/pfranca/LPOO1718_T2G10?branch=master)](https://bettercodehub.com/)
+<img src='https://bettercodehub.com/edge/badge/pfranca/LPOO1718_T2G10?branch=master'>
 
 ## Project ScreenShots <br />
 ###### Menu <br />
