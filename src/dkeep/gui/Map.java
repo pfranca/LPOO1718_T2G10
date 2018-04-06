@@ -73,46 +73,23 @@ public class Map extends JPanel{
 	
 	public void paintComponent (char[][] map) {
 		char c;
-
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map.length; j++) {
 
 				c = map[i][j];
 
 				switch (c) {
-				case 'X':
-					this.add(new JLabel(wall));
-					break;
-				case 'G':
-					this.add(new JLabel(guard));
-					break;
-				case 'g':
-					this.add(new JLabel(sleepingGuard));
-					break;
-				case 'I':
-					this.add(new JLabel(closedDoor));
-					break;
-				case 'H':
-					this.add(new JLabel(hero));
-					break;
-				case 'k':
-					this.add(new JLabel(key));
-					break;
-				case 'S':
-					this.add(new JLabel(openDoor));
-					break;
-				case 'O':
-					this.add(new JLabel(ogre1));
-					break;
-				case 'K':
-					this.add(new JLabel(heroKey));
-					break;
-				case '*':
-					this.add(new JLabel(club));
-					break;
-				default:
-					this.add(new JLabel(floor));
-					break;
+				case 'X': this.add(new JLabel(wall)); break;
+				case 'G': this.add(new JLabel(guard)); break;
+				case 'g': this.add(new JLabel(sleepingGuard)); break;
+				case 'I': this.add(new JLabel(closedDoor)); break;
+				case 'H': this.add(new JLabel(hero)); break;
+				case 'k': this.add(new JLabel(key)); break;
+				case 'S': this.add(new JLabel(openDoor)); break;
+				case 'O': this.add(new JLabel(ogre1)); break;
+				case 'K': this.add(new JLabel(heroKey)); break;
+				case '*': this.add(new JLabel(club)); break;
+				default: this.add(new JLabel(floor));break;
 				}}}
 	
 	public void update(char[][] map){
