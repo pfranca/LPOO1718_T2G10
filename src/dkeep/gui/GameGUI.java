@@ -1,21 +1,12 @@
 package dkeep.gui;
 
-import java.awt.Color;
+
 import java.awt.EventQueue;
-import java.awt.Font;
 
 import javax.swing.JFrame;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
 
-import javax.swing.JLabel;
+
 import javax.swing.JLayeredPane;
-import javax.swing.JComboBox;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.SwingConstants;
 
 import dkeep.logic.Game;
 import dkeep.logic.GameMap;
@@ -47,6 +38,8 @@ public class GameGUI {
 	static JLayeredPane layerPane;
 	static MenuGUI menu;
 	static Level1GUI level1Panel;
+	static WinGUI winPanel;
+	static LoseGUI losePanel;
 	static Game game;
 
 	/**
@@ -96,6 +89,16 @@ public class GameGUI {
 		level1Panel.setBounds(0, 0, 600, 600);
 		level1Panel.setVisible(false);
 		layerPane.add(level1Panel);
+		
+		winPanel = new WinGUI();
+		winPanel.setBounds(0, -3, 600, 600);
+		winPanel.setVisible(false);
+		layerPane.add(winPanel);
+		
+		losePanel = new LoseGUI();
+		losePanel.setBounds(0, -3, 600, 600);
+		losePanel.setVisible(false);
+		layerPane.add(losePanel);
 		
 		menu = new MenuGUI();
 		menu.setBounds(0, -3, 600, 600);

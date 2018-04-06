@@ -1,15 +1,10 @@
 package dkeep.gui;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 import java.awt.event.*;
-import java.awt.Font;
 import java.awt.GridLayout;
 
-import dkeep.logic.Game;
-import dkeep.logic.GameMap;
-import dkeep.logic.Guard;
 
 public class Level1GUI extends Map implements KeyListener {
 	
@@ -21,8 +16,6 @@ public class Level1GUI extends Map implements KeyListener {
 		this.setSize(width, height);
 		this.setVisible(true);
 		
-		
-
 		setImages();
 		
 		addKeyListener(this);
@@ -43,7 +36,9 @@ public class Level1GUI extends Map implements KeyListener {
 		}
 
 		if (GameGUI.getGame().isGameOver()){	
-			System.exit(0);	
+			GameGUI.level1Panel.setVisible(false);
+			GameGUI.losePanel.setVisible(true);
+			GameGUI.losePanel.requestFocus();	
 		}
 			
 		update();
