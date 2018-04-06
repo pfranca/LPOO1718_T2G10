@@ -109,12 +109,7 @@ public class Map extends JPanel{
 				default:
 					this.add(new JLabel(floor));
 					break;
-				}
-
-			}
-		
-
-	}
+				}}}
 	
 	public void update(char[][] map){
 		removeAll();
