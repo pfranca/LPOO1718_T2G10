@@ -11,7 +11,7 @@ public class Element {
 	private CellPosition pos;
 	
 	/**  
-	*Element classe constructor
+	*Element class constructor
 	*
 	*@param map An instance of GameMap containing a map with an element that's gonna be created
 	*@param symbol the symbol that represents said elemnet in the map matrix
