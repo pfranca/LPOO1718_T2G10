@@ -136,6 +136,12 @@ public class GameMap {
 		default:break;
 	}}
 	
+	/**  
+	*Deletes the old club position in the "graphical" representation
+	*
+	*@param x club's actual x position
+	*@param y club's actual y position
+	*/
 	public void deleteClub(int x, int y)
 	{
 		if(clubCounter!=1) {
