@@ -111,7 +111,6 @@ public class GameGUI {
 
 	}
 	
-	
 	public static Game getGame() {
 		return game;
 	}

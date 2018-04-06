@@ -13,6 +13,7 @@ public class Map extends JPanel{
 	protected ImageIcon sleepingGuard;
 	protected ImageIcon floor;
 	protected ImageIcon hero;
+	protected ImageIcon heroKey;
 	protected ImageIcon key;
 	protected ImageIcon openDoor;
 	protected ImageIcon closedDoor;
@@ -40,6 +41,7 @@ public class Map extends JPanel{
 		sleepingGuard = new ImageIcon(this.getClass().getResource("res/sleepingGuard.png"));
 		floor = new ImageIcon(this.getClass().getResource("res/floor.png"));
 		hero = new ImageIcon(this.getClass().getResource("res/hero.png"));
+		heroKey = new ImageIcon(this.getClass().getResource("res/heroKey.png"));
 		key = new ImageIcon(this.getClass().getResource("res/key.png"));
 		openDoor = new ImageIcon(this.getClass().getResource("res/openDoor2.png"));
 		closedDoor = new ImageIcon(this.getClass().getResource("res/closedDoor2.png"));
@@ -53,6 +55,7 @@ public class Map extends JPanel{
 		sleepingGuard = resizeImage(sleepingGuard);
 		floor =resizeImage(floor);
 		hero = resizeImage(hero);
+		heroKey = resizeImage(heroKey);
 		key = resizeImage(key);
 		openDoor = resizeImage(openDoor);
 		closedDoor = resizeImage(closedDoor);
@@ -93,6 +96,9 @@ public class Map extends JPanel{
 					break;
 				case 'O':
 					this.add(new JLabel(ogre1));
+					break;
+				case 'K':
+					this.add(new JLabel(heroKey));
 					break;
 				default:
 					this.add(new JLabel(floor));
