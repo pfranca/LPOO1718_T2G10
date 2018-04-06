@@ -3,7 +3,7 @@ package dkeep.logic;
 import java.util.Random;
 
 /**  
-* GameMap.java - Represents athe game map
+* Guard.java - Represents the Guard element of the game
 * @author  Patricia Janeiro
 * @author  Pedro França
 * @version 1.0 
