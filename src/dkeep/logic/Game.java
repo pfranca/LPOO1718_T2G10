@@ -25,6 +25,10 @@ public class Game {
 		return this.guard;
 	}
 	
+	public Ogre getOgre() {
+		return this.ogre;
+	}
+	
 	public Game(GameMap map) {
 		this.map=map;
 		this.hero = new Hero(map,'H');
@@ -50,12 +54,13 @@ public class Game {
 		}
 	}
 	
-	public void updateGame(String input, Guard guard) {		
+	public void updateGame(String input, Guard guard, Ogre ogre) {		
 		if(this.guard!=null) {
 			moveGuard(guard);
 			moveHero(input);
 		}else {
-			//moveOgre();
+			/*if(this.ogre!=null)
+				moveOgre(ogre);*/
 			moveHero(input);
 		}
 		
@@ -151,9 +156,9 @@ public class Game {
 		}
 	}
 	
-	public void moveOgre() {
+	public void moveOgre(Ogre ogre) {
 		
-		while (true) {
+		while (ogre!=null) {
 
 			Random random = new Random();
 
@@ -193,7 +198,7 @@ public class Game {
 	
 	public void ogreClub(Ogre ogre) {
 
-		while (true) {
+		while (ogre!=null) {
 
 			int x = ogre.getPosition().getX();
 			int y = ogre.getPosition().getY();
@@ -243,7 +248,6 @@ public class Game {
 				return true;
 			}
 		}
-		
 
 		if(guard!=null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			this.guard = null;
@@ -251,16 +255,15 @@ public class Game {
 			this.ogre = new Ogre(map);
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
-			//this.guard = null;
-
-		}	
+			this.guard = null;
+			this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
+		}		
 		
 		if(guard==null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			System.out.println("YOUWIN");
 		
 		}	
 			
-
 		return false;
 	}
 }
