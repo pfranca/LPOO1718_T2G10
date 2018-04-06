@@ -159,12 +159,11 @@ public class Game {
 	}
 	
 	public void moveOgre() {
-		
-		while (!isGameOver()) {
 
 			Random random = new Random();
 
 			int r = random.nextInt(4);
+			System.out.println(r);
 
 			switch(r) {
 			case 0:
@@ -194,7 +193,6 @@ public class Game {
 			default:break;
 			}
 
-		}
 	}
 	
 	public void ogreClub(Ogre ogre) {
@@ -256,7 +254,7 @@ public class Game {
 			this.ogre = new Ogre(map);
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
-			this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
+			this.ogre.setPosition(4, 1);
 			this.guard = null;
 			//this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
 		}		
