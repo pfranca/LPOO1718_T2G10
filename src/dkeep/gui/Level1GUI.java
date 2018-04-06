@@ -35,10 +35,14 @@ public class Level1GUI extends Map implements KeyListener {
 			this.setLayoutSize(9);
 		}
 
-		if (GameGUI.getGame().isGameOver()){	
+		if (GameGUI.getGame().isGameOver() && !GameGUI.getGame().getWin()){	
 			GameGUI.level1Panel.setVisible(false);
 			GameGUI.losePanel.setVisible(true);
 			GameGUI.losePanel.requestFocus();	
+		} else if (GameGUI.getGame().isGameOver() && GameGUI.getGame().getWin()){	
+			GameGUI.level1Panel.setVisible(false);
+			GameGUI.winPanel.setVisible(true);
+			GameGUI.winPanel.requestFocus();	
 		}
 			
 		update();

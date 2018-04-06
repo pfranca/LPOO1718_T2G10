@@ -26,6 +26,7 @@ public class Game {
 	private Key lever;
 	private Guard guard;
 	private Ogre ogre;
+	private boolean win;
 	
 	/**  
 	*@return the guard object of this instance of the game
@@ -42,6 +43,13 @@ public class Game {
 	}
 	
 	/**  
+	*@return true if the game ends in a winning state or false otherwise
+	*/ 
+	public boolean getWin() {
+		return win;
+	}
+	
+	/**  
 	*Game classe constructor
 	*
 	*@param map An object of type GameMap that contains the map of the level being played
@@ -51,6 +59,7 @@ public class Game {
 		this.hero = new Hero(map,'H');
 		this.lever = new Key(map);
 		this.guard = new Guard(map);
+		this.win = false;
 		
 		Random r = new Random();
 		int i = r.nextInt(3);
@@ -303,6 +312,7 @@ public class Game {
 				}
 		}	
 		if(guard==null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
+			this.win = true;
 			System.out.println("YOUWIN");
 			return true;
 		}				
