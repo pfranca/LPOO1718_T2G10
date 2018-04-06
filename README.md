@@ -13,7 +13,7 @@ ei12056@fe.up.pt <br />
 [Documentation](http://pedrofranca.me/LPOO1718_T2G10) <br />
 http://pedrofranca.me/LPOO1718_T2G10 <br />
 
-### Project ScreenShots <br />
+## Project ScreenShots <br />
 ###### Menu <br />
 ![game menu](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrMenu.png) <br />
 
@@ -27,7 +27,7 @@ http://pedrofranca.me/LPOO1718_T2G10 <br />
 ![level2](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLvl2.png) <br />
 
 ###### Level 2 but hero has the key <br />
-![level2 but hero has the key](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLvl2HeroKey.png) <br />
+![level2 but hero has the key](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLvl2Herokey.png) <br />
 
 ###### Win Screen <br />
 ![win screen](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrWin.png) <br />
