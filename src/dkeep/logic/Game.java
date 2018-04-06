@@ -83,7 +83,7 @@ public class Game {
 			moveHero(input);
 		}else {
 			if(this.ogre!=null)
-			moveOgre();
+			//moveOgre();
 			moveHero(input);
 		}	
 	}
