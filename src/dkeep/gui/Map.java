@@ -20,6 +20,7 @@ public class Map extends JPanel{
 	protected ImageIcon ogre1;
 	protected ImageIcon ogre2;
 	protected ImageIcon ogre3;
+	protected ImageIcon club;
 
 	public Map() {
 		super();
@@ -48,6 +49,7 @@ public class Map extends JPanel{
 		ogre1 = new ImageIcon(this.getClass().getResource("res/ogre1.png"));
 		ogre2 = new ImageIcon(this.getClass().getResource("res/ogre2.png"));
 		ogre3 = new ImageIcon(this.getClass().getResource("res/ogre3.png"));
+		club = new ImageIcon(this.getClass().getResource("res/club.png"));
 
 
 		wall = resizeImage(wall);
@@ -62,6 +64,7 @@ public class Map extends JPanel{
 		ogre1 = resizeImage(ogre1);
 		ogre2 = resizeImage(ogre2);
 		ogre3 = resizeImage(ogre3);
+		club = resizeImage(club);
 	}
 	
 	public void paintComponent (char[][] map) {
@@ -99,6 +102,9 @@ public class Map extends JPanel{
 					break;
 				case 'K':
 					this.add(new JLabel(heroKey));
+					break;
+				case '*':
+					this.add(new JLabel(club));
 					break;
 				default:
 					this.add(new JLabel(floor));

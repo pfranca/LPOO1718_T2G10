@@ -6,13 +6,14 @@ public class Ogre extends Element{
 	
 	public Ogre(GameMap map) {
 		super(map, 'O');
+		club = new CellPosition(0, 0);
 	}
 
 	public CellPosition getClub() {
 		return club;
 	}
 	
-	public void setClub(int x, int y) {
-		club.set(x, y);
+	public void setClub(int X, int Y) {
+		club.set(X, Y);
 	}
 }
