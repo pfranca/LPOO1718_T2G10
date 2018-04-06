@@ -85,5 +85,17 @@ public class GameMap {
 		
 		map[y][x]='G';
 	}
+	
+	public void updateOgre(int x, int y, String direction) {
+		
+		switch(direction){
+		case "up": map[y-1][x]='O'; break;
+		case "left": map[y][x-1]='O'; break;
+		case "down": map[y+1][x]='O'; break;
+		case "right": map[y][x+1]='O'; break;
+		default:break;
+	}
+		
+	}
 
 }

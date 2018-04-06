@@ -19,7 +19,7 @@ public class Map extends JPanel{
 	protected ImageIcon ogre1;
 	protected ImageIcon ogre2;
 	protected ImageIcon ogre3;
-	
+
 	public Map() {
 		super();
 
@@ -46,6 +46,7 @@ public class Map extends JPanel{
 		ogre1 = new ImageIcon(this.getClass().getResource("res/ogre1.png"));
 		ogre2 = new ImageIcon(this.getClass().getResource("res/ogre2.png"));
 		ogre3 = new ImageIcon(this.getClass().getResource("res/ogre3.png"));
+
 
 		wall = resizeImage(wall);
 		guard = resizeImage(guard);
