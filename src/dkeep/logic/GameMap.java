@@ -49,7 +49,13 @@ public class GameMap {
     }
 	
 	public void updateHero(int x, int y, String input) {
-		if(x==7 && y==8) {
+		if(map.length==10 &&  x==7 && y==8) {
+			map[y][x]='k';
+		}
+		else {
+			map[y][x]=' ';
+		}
+		if(map.length==9 &&x==7 && y==1) {
 			map[y][x]='k';
 		}
 		else {
