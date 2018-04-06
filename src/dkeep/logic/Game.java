@@ -3,6 +3,17 @@ package dkeep.logic;
 import java.util.Random;
 
 public class Game {
+	
+	static char level2[][] = {
+            {'X','X','X','X','X','X','X','X','X'},
+            {'I',' ',' ',' ','O',' ',' ','k','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+            {'X','H',' ',' ',' ',' ',' ',' ','X'},
+            {'X','X','X','X','X','X','X','X','X'}};
 
 	private GameMap map;
 	private Hero hero;
@@ -38,9 +49,13 @@ public class Game {
 	}
 	
 	public void updateGame(String input, Guard guard) {		
-
+		if(this.guard!=null) {
 			moveGuard(guard);
 			moveHero(input);
+		}else {
+			//move ogre
+			moveHero(input);
+		}
 		
 	}
 
@@ -124,7 +139,7 @@ public class Game {
 
 	public boolean isGameOver() {
 		//check for guard
-		if(!guard.getAsleep()) {
+		if(guard!=null && !guard.getAsleep()) {
 			if(hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()-1||
 				hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()+1 ||
 				hero.getPosition().getX() == guard.getPosition().getX()-1 && hero.getPosition().getY() == guard.getPosition().getY() ||
@@ -134,10 +149,13 @@ public class Game {
 			}
 		}
 		
-		/*if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
-			System.out.println("YOU WIN!"); 
-			return true;
-		}	*/	
+		if(guard!=null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
+			this.guard = null;
+			setMap(new GameMap(level2));
+			this.hero.setPosition(1, 7);
+			this.lever.setPosition(7, 1);
+			//this.guard = null;
+		}		
 		return false;
 	}
 }

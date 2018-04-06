@@ -92,7 +92,7 @@ public class GameGUI {
 		gameFrame.getContentPane().add(layerPane);
 		layerPane.setLayout(null);
 		
-		level1Panel = new Level1GUI(600, 600, 10);
+		level1Panel = new Level1GUI(650, 650, 10);
 		level1Panel.setBounds(0, 0, 600, 600);
 		level1Panel.setVisible(false);
 		layerPane.add(level1Panel);
@@ -121,7 +121,4 @@ public class GameGUI {
 		return game.getMap();
 	}
 	
-	public static void setLevel2() {
-		GameGUI.game.setMap(new GameMap(level2));
-	}
 }
