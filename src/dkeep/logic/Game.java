@@ -19,6 +19,7 @@ public class Game {
 	private Hero hero;
 	private Key lever;
 	private Guard guard;
+	private Ogre ogre;
 	
 	public Guard getGuard() {
 		return this.guard;
@@ -66,22 +67,31 @@ public class Game {
 				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX(), hero.getPosition().getY()-1); 
 			}
-				break;
+			if(guard==null && hero.getPosition().getY()-1 == lever.getPosition().getY() &&
+					hero.getPosition().getX() == lever.getPosition().getX()) {
+					
+					map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
+					hero.setPosition(hero.getPosition().getX(), hero.getPosition().getY()-1); 
+					//map.getMap()[lever.getPosition().getY()][lever.getPosition().getX()]='k';
+					map.getMap()[1][0] = 'S';
+						
+			}
+			break;
 		case "a":
 			if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == ' ') {
 				
 				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX()-1, hero.getPosition().getY()); 
 			}
-			if(hero.getPosition().getY() == lever.getPosition().getY() &&
+			if(guard!=null && hero.getPosition().getY() == lever.getPosition().getY() &&
 				hero.getPosition().getX()-1 == lever.getPosition().getX()) {
 				
 				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX()-1, hero.getPosition().getY()); 
 				//map.getMap()[lever.getPosition().getY()][lever.getPosition().getX()]='k';
-				
 				map.getMap()[5][0] = 'S';
 				map.getMap()[6][0] = 'S';
+					
 			}
 			break;
 		case "s":
@@ -95,6 +105,15 @@ public class Game {
 				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
 				hero.setPosition(hero.getPosition().getX()+1, hero.getPosition().getY()); 
 			}	
+			if(guard==null && hero.getPosition().getY() == lever.getPosition().getY() &&
+					hero.getPosition().getX()+1 == lever.getPosition().getX()) {
+					
+					map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input);
+					hero.setPosition(hero.getPosition().getX()+1, hero.getPosition().getY()); 
+					//map.getMap()[lever.getPosition().getY()][lever.getPosition().getX()]='k';
+					map.getMap()[1][0] = 'S';
+						
+			}
 			break;
 		default:break;
 		}
@@ -152,10 +171,15 @@ public class Game {
 		if(guard!=null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			this.guard = null;
 			setMap(new GameMap(level2));
+			this.ogre = new Ogre(map);
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
 			//this.guard = null;
-		}		
+		}	
+		
+		if(guard==null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
+			System.out.println("YOUWIN");
+		}	
 		return false;
 	}
 }
