@@ -18,6 +18,7 @@ public class Ogre extends Element{
 	*/
 	public Ogre(GameMap map) {
 		super(map, 'O');
+		club = new CellPosition(0, 0);
 	}
 
 	/**  
@@ -26,7 +27,7 @@ public class Ogre extends Element{
 	public CellPosition getClub() {
 		return club;
 	}
-	
+
 	/**  
 	* @param x x value of the club position
 	* @param x x value of the club position
