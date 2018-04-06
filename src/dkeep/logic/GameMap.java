@@ -129,24 +129,11 @@ public class GameMap {
 	public void updateClub(int x, int y, int r) {
 		
 		switch(r){
-		case 0: 
-			map[y][x+1] = ' ';
-			map[y][x+1]='*';
-			break;
-		case 1:
-			map[y][x-1] = ' ';
-			map[y][x-1]='*';
-			break;
-		case 2: 
-			map[y+1][x] = ' ';
-			map[y+1][x]='*'; 
-			break;
-		case 3: 
-			map[y-1][x] = ' ';
-			map[y-1][x]='*';
-			break;
+		case 0: map[y][x+1] = ' '; map[y][x+1]='*'; break;
+		case 1: map[y][x-1] = ' '; map[y][x-1]='*'; break;
+		case 2: map[y+1][x] = ' ';map[y+1][x]='*'; break;
+		case 3: map[y-1][x] = ' '; map[y-1][x]='*'; break;
 		default:break;
-		}			
-	}
+	}}
 
 }

@@ -29,26 +29,17 @@ public class Level1GUI extends Map implements KeyListener {
 	
 	public void playGameRound(String input) throws InterruptedException{
 		
-
 		GameGUI.getGame().updateGame(input, GameGUI.getGame().getGuard(), GameGUI.getGame().getOgre());
 		if(GameGUI.getMap().getMap()[GameGUI.getGame().getHeroPosition().getY()][GameGUI.getGame().getHeroPosition().getX()-1] == 'S') 	{
 			this.setLayoutSize(9);
 		}
 
 		if (GameGUI.getGame().isGameOver() && !GameGUI.getGame().getWin()){	
-			GameGUI.level1Panel.setVisible(false);
-			GameGUI.losePanel.setVisible(true);
-			GameGUI.losePanel.requestFocus();	
+			GameGUI.level1Panel.setVisible(false); GameGUI.losePanel.setVisible(true); GameGUI.losePanel.requestFocus();	
 		} else if (GameGUI.getGame().isGameOver() && GameGUI.getGame().getWin()){	
-			GameGUI.level1Panel.setVisible(false);
-			GameGUI.winPanel.setVisible(true);
-			GameGUI.winPanel.requestFocus();	
-		}
-			
-		update();
-		
-	
-			
+			GameGUI.level1Panel.setVisible(false); GameGUI.winPanel.setVisible(true); GameGUI.winPanel.requestFocus();	
+		}	
+		update();		
 	}
 	
 	@Override
@@ -68,15 +59,9 @@ public class Level1GUI extends Map implements KeyListener {
 			break;
 		case KeyEvent.VK_DOWN: 
 			playGameRound("s");  
-			break;
-		 }	
+			break; }}catch (InterruptedException e1){}
 		
-		}catch (InterruptedException e1){
-			
-		}
-		
-		requestFocus();
-		
+		requestFocus();	
 	}
 	
 

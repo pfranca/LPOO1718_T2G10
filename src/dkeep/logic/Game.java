@@ -64,19 +64,11 @@ public class Game {
 		Random r = new Random();
 		int i = r.nextInt(3);
 		switch(i) {
-		case 0:
-			this.guard.setPersonality("Rookie");
-			break;
-		case 1:
-			this.guard.setPersonality("Drunken");
-			break;
-		case 2:
-			this.guard.setPersonality("Suspicious");
-			break;
-		default:
-			break;
-		}
-	}
+		case 0: this.guard.setPersonality("Rookie"); break;
+		case 1: this.guard.setPersonality("Drunken"); break;
+		case 2: this.guard.setPersonality("Suspicious"); break;
+		default: break;
+	}}
 	
 	/**  
 	*Updates all the game elements(hero, guard, ogre)
