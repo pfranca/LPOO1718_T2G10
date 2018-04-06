@@ -1,4 +1,4 @@
-# Guided Project for OOP Lab class
+# Guided Project for OOP Lab class @FEUP
 ## LPOO1718_T2G10
 
 ### Team Members <br />
