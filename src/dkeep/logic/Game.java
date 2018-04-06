@@ -299,15 +299,7 @@ public class Game {
 	*@return true if it is in a final state and false otherwise
 	*/
 	public boolean isGameOver() {
-		if(guard!=null && !guard.getAsleep()) {
-			if(hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()-1||
-				hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()+1 ||
-				hero.getPosition().getX() == guard.getPosition().getX()-1 && hero.getPosition().getY() == guard.getPosition().getY() ||
-				hero.getPosition().getX() == guard.getPosition().getX()+1 && hero.getPosition().getY() == guard.getPosition().getY()){
-				System.out.println("GAME OVER!");
-				return true;
-			}
-		}
+		
 		if(guard!=null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			this.guard = null;
 			setMap(new GameMap(level2));
@@ -315,9 +307,34 @@ public class Game {
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
 			this.ogre.setPosition(4, 1);
-			this.guard = null;
-			//this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
-		}		
+		}	
+		if(checkOgre() || checkGuard() || checkWin()) {
+			return true;
+		}
+
+		return false;
+	}
+	
+	/**  
+	*Checks if the game is in win state
+	*
+	*@return true if it is in a win state and false otherwise
+	*/
+	public boolean checkWin() {
+		if(guard==null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
+			this.win = true;
+			System.out.println("YOUWIN");
+			return true;
+		}	
+		return false;
+	}
+	
+	/**  
+	*Checks if the hero 'touched' the ogre or his club
+	*
+	*@return true if it he did and false otherwise
+	*/
+	public boolean checkOgre() {
 		if(ogre!=null) {
 			if(hero.getPosition().getX() == ogre.getPosition().getX() && hero.getPosition().getY() == ogre.getPosition().getY()-1||
 					hero.getPosition().getX() == ogre.getPosition().getX() && hero.getPosition().getY() == ogre.getPosition().getY()+1 ||
@@ -325,8 +342,7 @@ public class Game {
 					hero.getPosition().getX() == ogre.getPosition().getX()+1 && hero.getPosition().getY() == ogre.getPosition().getY()){
 					System.out.println("GAME OVER!");
 					return true;
-				}
-			
+				}	
 			if(ogre.getClub() !=null) {
 				if(hero.getPosition().getX() == ogre.getClub().getX() && hero.getPosition().getY() == ogre.getClub().getY()-1||
 						hero.getPosition().getX() == ogre.getClub().getX() && hero.getPosition().getY() == ogre.getClub().getY()+1 ||
@@ -337,11 +353,24 @@ public class Game {
 					}				
 			}
 		}	
-		if(guard==null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
-			this.win = true;
-			System.out.println("YOUWIN");
-			return true;
-		}				
+		return false;
+	}
+	
+	/**  
+	*Checks if the hero 'touched' the guard 
+	*
+	*@return true if it he did and false otherwise
+	*/
+	public boolean checkGuard() {
+		if(guard!=null && !guard.getAsleep()) {
+			if(hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()-1||
+				hero.getPosition().getX() == guard.getPosition().getX() && hero.getPosition().getY() == guard.getPosition().getY()+1 ||
+				hero.getPosition().getX() == guard.getPosition().getX()-1 && hero.getPosition().getY() == guard.getPosition().getY() ||
+				hero.getPosition().getX() == guard.getPosition().getX()+1 && hero.getPosition().getY() == guard.getPosition().getY()){
+				System.out.println("GAME OVER!");
+				return true;
+			}
+		}
 		return false;
 	}
 }
