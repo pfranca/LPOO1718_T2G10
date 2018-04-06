@@ -16,13 +16,13 @@ public class GameMap {
 	
 	 static char level2[][] = {
              {'X','X','X','X','X','X','X','X','X'},
-             {'I',' ',' ',' ',' ',' ',' ',' ','X'},
+             {'I',' ',' ',' ','O',' ',' ','k','X'},
              {'X',' ',' ',' ',' ',' ',' ',' ','X'},
              {'X',' ',' ',' ',' ',' ',' ',' ','X'},
              {'X',' ',' ',' ',' ',' ',' ',' ','X'},
              {'X',' ',' ',' ',' ',' ',' ',' ','X'},
              {'X',' ',' ',' ',' ',' ',' ',' ','X'},
-             {'X',' ',' ',' ',' ',' ',' ',' ','X'},
+             {'X','H',' ',' ',' ',' ',' ',' ','X'},
              {'X','X','X','X','X','X','X','X','X'}};
 	 
 	 private char[][] map;
@@ -35,6 +35,8 @@ public class GameMap {
 	public char[][] getMap(){
 		return map;
 	}
+	
+	
 
 	
 	public void printMap(){
@@ -65,19 +67,17 @@ public class GameMap {
 	
 	
 	public void updateGuard(int x, int y) {
-		if(map[y][x] == ' ') {
-			for(int i=0;i<map.length;i++) {
-				for(int j=0;j<map.length;j++) {
-					if(map[i][j]=='g') {
-						map[i][j]=' ';
-					}
-					if(map[i][j]=='G')
-						map[i][j]=' ';
+		for(int i=0;i<map.length;i++) {
+			for(int j=0;j<map.length;j++) {
+				if(map[i][j]=='g') {
+					map[i][j]=' ';
 				}
+				if(map[i][j]=='G')
+					map[i][j]=' ';
 			}
-			
-			map[y][x]='G';
 		}
+		
+		map[y][x]='G';
 	}
 	
 	public void updateOgre(int x, int y, String direction) {

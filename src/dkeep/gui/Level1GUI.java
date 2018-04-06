@@ -46,8 +46,10 @@ public class Level1GUI extends Map implements KeyListener {
 		
 		//GameGUI.getGame().moveGuard(GameGUI.getGame().getGuard());
 		GameGUI.getGame().updateGame(input, GameGUI.getGame().getGuard());
-		if(GameGUI.getMap().getMap()[GameGUI.getGame().getHeroPosition().getY()][GameGUI.getGame().getHeroPosition().getX()-1] == 'S') 	
-			GameGUI.setLevel2();
+		if(GameGUI.getMap().getMap()[GameGUI.getGame().getHeroPosition().getY()][GameGUI.getGame().getHeroPosition().getX()-1] == 'S') 	{
+			this.setLayoutSize(9);
+			//GameGUI.setLevel2();
+		}
 
 		
 		update();
@@ -98,11 +100,11 @@ public class Level1GUI extends Map implements KeyListener {
 	}
 
 
-	public void setSize(int size) {
+	public void setLayoutSize(int size) {
 		this.setLayout(new GridLayout(size, size));
 		
 	}
 	
-	
+
 
 }
