@@ -36,7 +36,11 @@ public class Level1GUI extends Map implements KeyListener {
 	
 	public void playGameRound(String input) throws InterruptedException{
 		
-		
+		GameGUI.getGame().updateGame(input, GameGUI.getGame().getGuard());
+		if(GameGUI.getMap().getMap()[GameGUI.getGame().getHeroPosition().getY()][GameGUI.getGame().getHeroPosition().getX()-1] == 'S') 	{
+			this.setLayoutSize(9);
+			//GameGUI.setLevel2();
+		}
 
 		if (GameGUI.getGame().isGameOver()){	
 			System.exit(0);	
@@ -45,11 +49,7 @@ public class Level1GUI extends Map implements KeyListener {
 		
 		
 		//GameGUI.getGame().moveGuard(GameGUI.getGame().getGuard());
-		GameGUI.getGame().updateGame(input, GameGUI.getGame().getGuard());
-		if(GameGUI.getMap().getMap()[GameGUI.getGame().getHeroPosition().getY()][GameGUI.getGame().getHeroPosition().getX()-1] == 'S') 	{
-			this.setLayoutSize(9);
-			//GameGUI.setLevel2();
-		}
+		
 
 		
 		update();
