@@ -25,6 +25,10 @@ public class Game {
 		return this.guard;
 	}
 	
+	public Ogre getOgre() {
+		return this.ogre;
+	}
+	
 	public Game(GameMap map) {
 		this.map=map;
 		this.hero = new Hero(map);
@@ -50,12 +54,13 @@ public class Game {
 		}
 	}
 	
-	public void updateGame(String input, Guard guard) {		
+	public void updateGame(String input, Guard guard, Ogre ogre) {		
 		if(this.guard!=null) {
 			moveGuard(guard);
 			moveHero(input);
 		}else {
-			//moveOgre();
+			if(this.ogre!=null)
+				moveOgre(ogre);
 			moveHero(input);
 		}
 		
@@ -126,7 +131,7 @@ public class Game {
 		}
 	}
 	
-	public void moveOgre() {
+	public void moveOgre(Ogre ogre) {
 		
 		while (true) {
 
@@ -219,21 +224,20 @@ public class Game {
 			}
 		}
 		
-//<<<<<<< HEAD
 		/*if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			level2 = true;
 			/*System.out.println("YOU WIN!"); 
 			return true;
 		}*/
-//=======
+
 		if(guard!=null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			this.guard = null;
 			setMap(new GameMap(level2));
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
-			//this.guard = null;
+			this.guard = null;
+			//this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
 		}		
-//>>>>>>> 5242a0d234c30d3f6a19a6ff526415cd6803e171
 		return false;
 	}
 }
