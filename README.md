@@ -16,7 +16,7 @@ http://pedrofranca.me/LPOO1718_T2G10 <br />
 ## BetterCodeHub Status Badge [![BCH compliance](https://bettercodehub.com/edge/badge/pfranca/LPOO1718_T2G10?branch=master)](https://bettercodehub.com/) <br />
 https://bettercodehub.com/results/pfranca/LPOO1718_T2G10 <br />
 ![codehub](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrcodehubsmall.png) <br />
-![codehub](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrcodehubsbig.png) <br />
+![codehub](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtsrccodehubbig.png) <br />
 
 
 ## Project ScreenShots <br />
