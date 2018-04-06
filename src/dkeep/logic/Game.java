@@ -34,7 +34,7 @@ public class Game {
 		this.hero = new Hero(map,'H');
 		this.lever = new Key(map);
 		this.guard = new Guard(map);
-		this.ogre = new Ogre(map);
+		//this.ogre = new Ogre(map);
 		
 		Random r = new Random();
 		int i = r.nextInt(3);
@@ -59,8 +59,8 @@ public class Game {
 			moveGuard(guard);
 			moveHero(input);
 		}else {
-			/*if(this.ogre!=null)
-				moveOgre(ogre);*/
+			if(this.ogre!=null)
+				moveOgre();
 			moveHero(input);
 		}
 		
@@ -134,63 +134,64 @@ public class Game {
 	}
 	
 	public void moveGuard(Guard guard) {
-		String personality = guard.getPersonality();
-		switch(personality) {
-		case "Rookie":
-			guard.moveRookie();
-			break;
-		case "Drunken":
-			guard.moveDrunken();
-			break;
-		case "Suspicious":
-			guard.moveSuspicious();
-			break;
-		default:break;
-		}
-		
-		if(!guard.getAsleep()) {
-			map.updateGuard(guard.getPosition().getX(), guard.getPosition().getY());
-		}
-		else {
-			map.getMap()[guard.getPosition().getY()][guard.getPosition().getX()] = 'g';
+		if(guard!=null) {
+			String personality = guard.getPersonality();
+			switch(personality) {
+			case "Rookie":
+				guard.moveRookie();
+				break;
+			case "Drunken":
+				guard.moveDrunken();
+				break;
+			case "Suspicious":
+				guard.moveSuspicious();
+				break;
+			default:break;
+			}
+			
+			if(!guard.getAsleep()) {
+				map.updateGuard(guard.getPosition().getX(), guard.getPosition().getY());
+			}
+			else {
+				map.getMap()[guard.getPosition().getY()][guard.getPosition().getX()] = 'g';
+			}
 		}
 	}
 	
-	public void moveOgre(Ogre ogre) {
+	public void moveOgre() {
 		
-		while (ogre!=null) {
+		while (!isGameOver()) {
 
 			Random random = new Random();
 
 			int r = random.nextInt(4);
 
-			if (r == 0) {
+			switch(r) {
+			case 0:
 				if(map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()+1] == ' ') {
 					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"right");
 					ogre.setPosition(ogre.getPosition().getX()+1, ogre.getPosition().getY()); 
 				}
-				
-			}
-				
-			if (r == 1) {
+				break;
+			case 1:
 				if(map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()-1] == ' ') {
 					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"left");
 					ogre.setPosition(ogre.getPosition().getX()-1, ogre.getPosition().getY()); 
 				}
-			}
-				
-			if (r == 2) {
+				break;
+			case 2:
 				if(map.getMap()[ogre.getPosition().getY()+1][ogre.getPosition().getX()] == ' ') {
 					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"down");
 					ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY()+1); 
 				}
-			}
-				
-			if (r == 3) {
+				break;
+			case 3:
 				if(map.getMap()[ogre.getPosition().getY()-1][ogre.getPosition().getX()] == ' ') {
 					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"up");
 					ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY()-1); 
 				}
+				break;
+			default:break;
 			}
 
 		}
@@ -198,7 +199,7 @@ public class Game {
 	
 	public void ogreClub(Ogre ogre) {
 
-		while (ogre!=null) {
+		while (!isGameOver()) {
 
 			int x = ogre.getPosition().getX();
 			int y = ogre.getPosition().getY();
@@ -255,9 +256,20 @@ public class Game {
 			this.ogre = new Ogre(map);
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
-			this.guard = null;
 			this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
+			this.guard = null;
+			//this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
 		}		
+		
+		if(ogre!=null) {
+			if(hero.getPosition().getX() == ogre.getPosition().getX() && hero.getPosition().getY() == ogre.getPosition().getY()-1||
+					hero.getPosition().getX() == ogre.getPosition().getX() && hero.getPosition().getY() == ogre.getPosition().getY()+1 ||
+					hero.getPosition().getX() == ogre.getPosition().getX()-1 && hero.getPosition().getY() == ogre.getPosition().getY() ||
+					hero.getPosition().getX() == ogre.getPosition().getX()+1 && hero.getPosition().getY() == ogre.getPosition().getY()){
+					System.out.println("GAME OVER!");
+					return true;
+				}
+		}
 		
 		if(guard==null && map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
 			System.out.println("YOUWIN");
