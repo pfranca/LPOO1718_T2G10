@@ -8,6 +8,7 @@ public class Game {
 	private Hero hero;
 	private Key lever;
 	private Guard guard;
+	private Ogre ogre;
 	
 	public Guard getGuard() {
 		return this.guard;
@@ -18,6 +19,7 @@ public class Game {
 		this.hero = new Hero(map);
 		this.lever = new Key(map);
 		this.guard = new Guard(map);
+		this.ogre = new Ogre(map);
 		
 		Random r = new Random();
 		int i = r.nextInt(3);
@@ -40,6 +42,7 @@ public class Game {
 	public void updateGame(String input, Guard guard) {		
 
 			moveGuard(guard);
+			//moveOgre();
 			moveHero(input);
 		
 	}
@@ -109,6 +112,74 @@ public class Game {
 		}
 	}
 	
+	public void moveOgre() {
+		
+		while (true) {
+
+			Random random = new Random();
+
+			int r = random.nextInt(4);
+
+			if (r == 0) {
+				if(map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()+1] == ' ') {
+					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"right");
+					ogre.setPosition(ogre.getPosition().getX()+1, ogre.getPosition().getY()); 
+				}
+				
+			}
+				
+			if (r == 1) {
+				if(map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()-1] == ' ') {
+					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"left");
+					ogre.setPosition(ogre.getPosition().getX()-1, ogre.getPosition().getY()); 
+				}
+			}
+				
+			if (r == 2) {
+				if(map.getMap()[ogre.getPosition().getY()+1][ogre.getPosition().getX()] == ' ') {
+					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"down");
+					ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY()+1); 
+				}
+			}
+				
+			if (r == 3) {
+				if(map.getMap()[ogre.getPosition().getY()-1][ogre.getPosition().getX()] == ' ') {
+					map.updateOgre(ogre.getPosition().getX(), ogre.getPosition().getY(),"up");
+					ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY()-1); 
+				}
+			}
+
+		}
+	}
+	
+	public void ogreClub(Ogre ogre) {
+
+		while (true) {
+
+			int x = ogre.getPosition().getX();
+			int y = ogre.getPosition().getY();
+
+			Random random = new Random();
+
+			int r = random.nextInt(4);
+
+			if (r == 0)
+				x += 1;
+			if (r == 1)
+				x -= 1;
+			if (r == 2)
+				y += 1;
+			if (r == 3)
+				y -= 1;
+
+			if (map.getMap()[y][x] == ' ') {
+				ogre.setClub(x, y);
+				break;
+			}
+		}
+
+	}
+	
 	public CellPosition getHeroPosition() {
 		return hero.getPosition();
 		
@@ -135,9 +206,10 @@ public class Game {
 		}
 		
 		/*if(map.getMap()[hero.getPosition().getY()][hero.getPosition().getX()-1] == 'S') {
-			System.out.println("YOU WIN!"); 
+			level2 = true;
+			/*System.out.println("YOU WIN!"); 
 			return true;
-		}	*/	
+		}*/
 		return false;
 	}
 }

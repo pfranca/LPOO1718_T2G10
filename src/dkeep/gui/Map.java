@@ -16,7 +16,7 @@ public class Map extends JPanel{
 	protected ImageIcon key;
 	protected ImageIcon openDoor;
 	protected ImageIcon closedDoor;
-	//protected ImageIcon ogre;
+	protected ImageIcon ogre;
 	
 	public Map() {
 		super();
@@ -42,6 +42,7 @@ public class Map extends JPanel{
 		openDoor = new ImageIcon(this.getClass().getResource("res/openDoor2.png"));
 		closedDoor = new ImageIcon(this.getClass().getResource("res/closedDoor2.png"));
 		//ogre = new ImageIcon(this.getClass().getResource("res/ogre.png"));
+		ogre = new ImageIcon(this.getClass().getResource("res/guard.png"));
 
 		wall = resizeImage(wall);
 		guard = resizeImage(guard);
@@ -51,7 +52,7 @@ public class Map extends JPanel{
 		key = resizeImage(key);
 		openDoor = resizeImage(openDoor);
 		closedDoor = resizeImage(closedDoor);
-		//ogre = resizeImage(ogre);
+		ogre = resizeImage(ogre);
 	}
 	
 	public void paintComponent (char[][] map) {
@@ -83,6 +84,9 @@ public class Map extends JPanel{
 					break;
 				case 'S':
 					this.add(new JLabel(openDoor));
+					break;
+				case 'O':
+					this.add(new JLabel(guard));
 					break;
 				default:
 					this.add(new JLabel(floor));
