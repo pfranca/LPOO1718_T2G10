@@ -14,27 +14,29 @@ ei12056@fe.up.pt <br />
 http://pedrofranca.me/LPOO1718_T2G10 <br />
 
 ## BetterCodeHub Status Badge [![BCH compliance](https://bettercodehub.com/edge/badge/pfranca/LPOO1718_T2G10?branch=master)](https://bettercodehub.com/) <br />
-https://bettercodehub.com/results/pfranca/LPOO1718_T2G10
+https://bettercodehub.com/results/pfranca/LPOO1718_T2G10 <br />
+![codehub](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrcodehubsmall.png) <br />
+![codehub](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrcodehubsmall.png) <br />
 
 
 ## Project ScreenShots <br />
 ###### Menu <br />
-![game menu](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrMenu.png) <br />
+![game menu](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrMenu.png) <br />
 
 ###### Level 1 <br />
-![level1](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLvl1.png) <br />
+![level1](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrLvl1.png) <br />
 
 ###### Level 1 with open doors <br />
-![level1 with open doors](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrOpenDoor.png) <br />
+![level1 with open doors](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrOpenDoor.png) <br />
 
 ###### Level 2 <br />
-![level2](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLvl2.png) <br />
+![level2](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrLvl2.png) <br />
 
 ###### Level 2 but hero has the key <br />
-![level2 but hero has the key](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLvl2Herokey.png) <br />
+![level2 but hero has the key](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrLvl2Herokey.png) <br />
 
 ###### Win Screen <br />
-![win screen](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrWin.png) <br />
+![win screen](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrWin.png) <br />
 
 ###### Lose Screen <br />
-![lose screen](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtscrLose.png) <br />
+![lose screen](https://github.com/pfranca/LPOO1718_T2G10/blob/master/prtScrs/prtscrLose.png) <br />
