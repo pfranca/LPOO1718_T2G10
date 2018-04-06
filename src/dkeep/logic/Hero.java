@@ -35,6 +35,5 @@ public class Hero extends Element{
 	public boolean getKey() {
 		return hasKey;
 	}
-	
 
 }

@@ -134,7 +134,7 @@ public class Game {
 				map.updateHero(hero.getPosition().getX(), hero.getPosition().getY(),input,hero.getKey());
 				hero.setPosition(hero.getPosition().getX()-1, hero.getPosition().getY()); 
 				map.getMap()[5][0] = 'S';
-				map.getMap()[6][0] = 'S';		
+				map.getMap()[6][0] = 'S';	 
 			}
 			break;
 		case "s":

@@ -146,7 +146,7 @@ public class GameMap {
 			map[y-1][x]='*';
 			break;
 		default:break;
-		}			
+		}	
 	}
 
 }
