@@ -184,9 +184,10 @@ public class Game {
 	*@return Nothing.
 	*/
 	public void moveOgre() {
-		while (!isGameOver()) {
+
 			Random random = new Random();
 			int r = random.nextInt(4);
+
 			switch(r) {
 			case 0:
 				if(map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()+1] == ' ') {
@@ -214,7 +215,6 @@ public class Game {
 				break;
 			default:break;
 			}
-		}
 	}
 	
 	/**  
@@ -289,7 +289,8 @@ public class Game {
 			this.ogre = new Ogre(map);
 			this.hero.setPosition(1, 7);
 			this.lever.setPosition(7, 1);
-			this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
+			this.ogre.setPosition(4, 1);
+			this.guard = null;
 			//this.ogre.setPosition(ogre.getPosition().getX(), ogre.getPosition().getY());
 		}		
 		if(ogre!=null) {
