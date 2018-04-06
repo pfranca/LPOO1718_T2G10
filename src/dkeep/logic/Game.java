@@ -84,6 +84,7 @@ public class Game {
 		}else {
 			if(this.ogre!=null)
 			moveOgre();
+			ogreClub(ogre);
 			moveHero(input);
 		}	
 	}
@@ -224,7 +225,7 @@ public class Game {
 	*@return Nothing.
 	*/
 	public void ogreClub(Ogre ogre) {
-		while (!isGameOver()) {
+
 			int x = ogre.getPosition().getX();
 			int y = ogre.getPosition().getY();
 			Random random = new Random();
@@ -238,10 +239,9 @@ public class Game {
 			if (r == 3)
 				y -= 1;
 			if (map.getMap()[y][x] == ' ') {
+				map.updateClub(x, y, r);
 				ogre.setClub(x, y);
-				break;
 			}
-		}
 	}
 	
 	/**  

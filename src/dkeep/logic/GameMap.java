@@ -99,7 +99,21 @@ public class GameMap {
 		case "down": map[y+1][x]='O'; break;
 		case "right": map[y][x+1]='O'; break;
 		default:break;
+		}
+		
 	}
+	
+		public void updateClub(int x, int y, int r) {
+		
+		map[y][x] = ' ';
+		
+		switch(r){
+		case 0: map[y][x+1]='*'; break;
+		case 1: map[y][x-1]='*'; break;
+		case 2: map[y+1][x]='*'; break;
+		case 3: map[y-1][x]='*'; break;
+		default:break;
+		}
 		
 	}
 
