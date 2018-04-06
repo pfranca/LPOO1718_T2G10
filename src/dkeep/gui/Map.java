@@ -72,11 +72,10 @@ public class Map extends JPanel{
 	}
 	
 	public void paintComponent (char[][] map) {
-		char c;
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map.length; j++) {
 
-				c = map[i][j];
+				char c = map[i][j];
 
 				switch (c) {
 				case 'X': this.add(new JLabel(wall)); break;

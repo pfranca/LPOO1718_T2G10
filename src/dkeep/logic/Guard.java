@@ -71,9 +71,7 @@ public class Guard extends Element {
 					}
 				}
 				break;
-			}
-		}
-	}
+	}}}
 	
 	/**  
 	*Moves the Rookie Guard
@@ -89,25 +87,20 @@ public class Guard extends Element {
 	*@return Nothing.
 	*/
 	public void moveDrunken() {
-		Random r1 = new Random();
-		Random r2 = new Random();
-		int i = r1.nextInt(4);
-		int j = r2.nextInt(4);
+		Random r1 = new Random(); Random r2 = new Random();
+		int i = r1.nextInt(4);int j = r2.nextInt(4);
 		if (i == 0) {
 			this.isAsleep = true;	
-		}
-		else {
+		} else {
 			this.isAsleep = false;
 			
 			if(j == 0) {
 				this.reverseGuard = true;
-			}
-			else {
+			} else {
 				this.reverseGuard = false;
 			}
 			moveGuard();
-		}
-	}
+}}
 
 	/**  
 	*Moves the Suspicious Guard

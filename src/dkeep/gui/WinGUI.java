@@ -19,9 +19,8 @@ public class WinGUI extends JPanel {
  
         
         setBtnMainMenu();
-        setBtnExit();
         setWinImage();
-
+        setBtnExit();
         setLayout(null);
         
     }
@@ -29,9 +28,9 @@ public class WinGUI extends JPanel {
     private void setBtnExit() {
 		
 		JButton btnExit = new JButton("");
-		btnExit.setOpaque(false);
 		btnExit.setContentAreaFilled(false);
 		btnExit.setBorderPainted(false);
+		btnExit.setOpaque(false);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
