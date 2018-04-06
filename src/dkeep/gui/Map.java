@@ -24,19 +24,22 @@ public class Map extends JPanel{
 
 	public Map() {
 		super();
-
 	}
 	
 	private ImageIcon resizeImage(ImageIcon im) {
 
 		Image img = im.getImage();
 		Image newimg = img.getScaledInstance(this.getWidth() / 10, this.getHeight() / 10, Image.SCALE_DEFAULT);
-
 		return new ImageIcon(newimg);
 	}
 	
 	protected void setImages() {
-
+		getImages();
+		resizeAll();
+	}
+	
+	
+	private void getImages() {
 		wall = new ImageIcon(this.getClass().getResource("res/wall.png"));
 		guard = new ImageIcon(this.getClass().getResource("res/guard.png"));
 		sleepingGuard = new ImageIcon(this.getClass().getResource("res/sleepingGuard.png"));
@@ -49,9 +52,10 @@ public class Map extends JPanel{
 		ogre1 = new ImageIcon(this.getClass().getResource("res/ogre1.png"));
 		ogre2 = new ImageIcon(this.getClass().getResource("res/ogre2.png"));
 		ogre3 = new ImageIcon(this.getClass().getResource("res/ogre3.png"));
-		club = new ImageIcon(this.getClass().getResource("res/club.png"));
-
-
+		club = new ImageIcon(this.getClass().getResource("res/club.png"));	
+	}
+	
+	private void resizeAll() {
 		wall = resizeImage(wall);
 		guard = resizeImage(guard);
 		sleepingGuard = resizeImage(sleepingGuard);
@@ -63,8 +67,8 @@ public class Map extends JPanel{
 		closedDoor = resizeImage(closedDoor);
 		ogre1 = resizeImage(ogre1);
 		ogre2 = resizeImage(ogre2);
-		ogre3 = resizeImage(ogre3);
-		club = resizeImage(club);
+		ogre3 = resizeImage(ogre3); 
+		club = resizeImage(club);	
 	}
 	
 	public void paintComponent (char[][] map) {
@@ -113,12 +117,8 @@ public class Map extends JPanel{
 	
 	public void update(char[][] map){
 		removeAll();
-
-		repaint();
-		
-		paintComponent(map);
-		
-		
+		repaint();	
+		paintComponent(map);	
 		revalidate();
 	}
 

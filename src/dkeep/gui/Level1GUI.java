@@ -94,8 +94,7 @@ public class Level1GUI extends Map implements KeyListener {
 
 
 	public void setLayoutSize(int size) {
-		this.setLayout(new GridLayout(size, size));
-		
+		this.setLayout(new GridLayout(size, size));	
 	}
 	
 

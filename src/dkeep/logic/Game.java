@@ -197,8 +197,7 @@ public class Game {
 	*/
 	public void moveOgre() {
 
-			Random random = new Random();
-			int r = random.nextInt(4);
+			Random random = new Random(); int r = random.nextInt(4);
 
 			switch(r) {
 			case 0:
@@ -226,8 +225,7 @@ public class Game {
 				}
 				break;
 			default:break;
-			}
-	}
+	}}
 	
 	/**  
 	*Positions the ogre's club
@@ -237,9 +235,7 @@ public class Game {
 	*/
 	public void ogreClub(Ogre ogre) {
 
-			Random random = new Random();
-			int r = random.nextInt(4);
-			
+			Random random = new Random(); int r = random.nextInt(4);
 			switch(r) {
 			case 0:
 				if (map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()+1] == ' ') {
@@ -266,8 +262,7 @@ public class Game {
 				}
 				break;
 			default:break;
-			}
-	}
+	}}
 	
 	/**  
 	*@return A CellPosition object containing the hero position
