@@ -9,6 +9,7 @@ package dkeep.logic;
 public class GameMap {
 	
 	 private char[][] map;
+	 static int clubCounter = 1;
 	
 	/**  
 	*GameMap class constructor
@@ -126,14 +127,19 @@ public class GameMap {
 	*@param r random direction in which the club moved
 	*@return Nothing.
 	*/
-	public void updateClub(int x, int y, int r) {
-		
+	public void updateClub(int x, int y, int r) {		
 		switch(r){
-		case 0: map[y][x+1] = ' '; map[y][x+1]='*'; break;
-		case 1: map[y][x-1] = ' '; map[y][x-1]='*'; break;
-		case 2: map[y+1][x] = ' ';map[y+1][x]='*'; break;
-		case 3: map[y-1][x] = ' '; map[y-1][x]='*'; break;
+		case 0: map[y][x+1]='*'; break;
+		case 1:  map[y][x-1]='*'; break;
+		case 2: map[y+1][x]='*'; break;
+		case 3:  map[y-1][x]='*'; break;
 		default:break;
 	}}
-
+	
+	public void deleteClub(int x, int y)
+	{
+		if(clubCounter!=1) {
+			map[y][x] = ' ';}
+		clubCounter--;
+	}
 }

@@ -231,24 +231,28 @@ public class Game {
 			switch(r) {
 			case 0:
 				if (map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()+1] == ' ') {
+					map.deleteClub(ogre.getClub().getX(), ogre.getClub().getY());
 					map.updateClub(ogre.getPosition().getX(), ogre.getPosition().getY(), r);
 					ogre.setClub(ogre.getPosition().getX()+1, ogre.getPosition().getY());
 				}
 				break;
 			case 1:
 				if (map.getMap()[ogre.getPosition().getY()][ogre.getPosition().getX()-1] == ' ') {
+					map.deleteClub(ogre.getClub().getX(), ogre.getClub().getY());
 					map.updateClub(ogre.getPosition().getX(), ogre.getPosition().getY(), r);
 					ogre.setClub(ogre.getPosition().getX()-1, ogre.getPosition().getY());
 				}
 				break;
 			case 2:
 				if (map.getMap()[ogre.getPosition().getY()+1][ogre.getPosition().getX()] == ' ') {
+					map.deleteClub(ogre.getClub().getX(), ogre.getClub().getY());
 					map.updateClub(ogre.getPosition().getX(), ogre.getPosition().getY(), r);
 					ogre.setClub(ogre.getPosition().getX(), ogre.getPosition().getY()+1);
 				}
 				break;
 			case 3:
 				if (map.getMap()[ogre.getPosition().getY()-1][ogre.getPosition().getX()] == ' ') {
+					map.deleteClub(ogre.getClub().getX(), ogre.getClub().getY());
 					map.updateClub(ogre.getPosition().getX(), ogre.getPosition().getY(), r);
 					ogre.setClub(ogre.getPosition().getX(), ogre.getPosition().getY()-1);
 				}
